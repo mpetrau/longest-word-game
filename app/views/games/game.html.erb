@@ -1,2 +1,27 @@
-<h1>Games#game</h1>
-<p>Find me in app/views/games/game.html.erb</p>
+<% @start = Time.now  %>
+<div class="container d-flex flex-column align-items-center" style="height: 100vh">
+  <div class="my-auto bg-primary p-5 w-75 text-center">
+    <h1 class="text-white">Play a game!</h1>
+    <div>
+      <ul class="text-white list-inline my-5">
+        <% @grid.each do |l|  %>
+        <li class="list-inline-item bg-light text-primary p-3 m-1"><%= l %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="">
+      <form action="/score" class="form-inline my-5 mx-auto w-75">
+      <%= hidden_field_tag :start, @start %>
+      <%= hidden_field_tag :grid, @grid %>
+      <input placeholder="your word..." type="text" name="word" class="form-control w-75">
+      <input type="submit" class="btn btn-light w-25">
+    </form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+

@@ -1,2 +1,20 @@
-<h1>Games#score</h1>
-<p>Find me in app/views/games/score.html.erb</p>
+<div class="container d-flex flex-column align-items-center" style="height: 100vh">
+  <div class="my-auto bg-primary p-5 w-75 text-center">
+    <h1 class="text-white"><%= @result[:message] %></h1>
+    <div class="my-5 list-inline">
+      <div class="bg-light p-5 m-1 list-inline-item">
+        <p class="text-secondary">word</p>
+        <h2 class="text-primary"><%= @word %></h2>
+      </div>
+      <div class="bg-light p-5 m-1 list-inline-item">
+        <p class="text-secondary">time</p>
+        <h2 class="text-primary"><%= @result[:time] %></h2>
+      </div>
+      <div class="bg-light p-5 m-1 list-inline-item">
+        <p class="text-secondary">score</p>
+        <h2 class="text-primary"><%= @result[:score] %></h2>
+      </div>
+    </div>
+    <%= link_to "Play again!", game_path, class: "btn btn-light w-50 my-auto" %>
+  </div>
+</div>
