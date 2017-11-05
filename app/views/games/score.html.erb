@@ -1,20 +1,34 @@
-<div class="container d-flex flex-column align-items-center" style="height: 100vh">
+<div class="container d-flex justify-content-center" style="height: 100vh">
   <div class="my-auto bg-primary p-5 w-75 text-center">
-    <h1 class="text-white"><%= @result[:message] %></h1>
-    <div class="my-5 list-inline">
-      <div class="bg-light p-5 m-1 list-inline-item">
-        <p class="text-secondary">word</p>
-        <h2 class="text-primary"><%= @word %></h2>
+    <div>
+      <h1 class="text-white"><%= @result[:message] %></h1>
+      <div class="my-5 list-inline">
+        <div class="bg-light p-5 m-1 list-inline-item">
+          <p class="text-secondary">word</p>
+          <h2 class="text-primary"><%= @word %></h2>
+        </div>
+        <div class="bg-light p-5 m-1 list-inline-item">
+          <p class="text-secondary">time</p>
+          <h2 class="text-primary"><%= @result[:time] %></h2>
+        </div>
+        <div class="bg-light p-5 m-1 list-inline-item">
+          <p class="text-secondary">score</p>
+          <h2 class="text-primary"><%= @result[:score] %></h2>
+        </div>
       </div>
-      <div class="bg-light p-5 m-1 list-inline-item">
-        <p class="text-secondary">time</p>
-        <h2 class="text-primary"><%= @result[:time] %></h2>
-      </div>
-      <div class="bg-light p-5 m-1 list-inline-item">
-        <p class="text-secondary">score</p>
-        <h2 class="text-primary"><%= @result[:score] %></h2>
-      </div>
+      <%= link_to "Play again!", game_path, class: "btn btn-light w-50 my-auto" %>
     </div>
-    <%= link_to "Play again!", game_path, class: "btn btn-light w-50 my-auto" %>
+    <div class="bg-light d-flex my-3">
+      <div class="border border-primary p-2 m-3">
+        <p class="text-secondary">average score</p>
+        <h2 class="text-primary"><%= avg_score(@games) %></h2>
+      </div>
+      <p class="text-secondary align-self-center">all scores</p>
+      <ul class="list-inline">
+        <% all_scores(@games).each do |score| %>
+          <li class="list-inline-item my-1 mx-2"> - <%= score %> - </li>
+        <% end  %>
+      </ul>
+    </div>
   </div>
 </div>

@@ -11,5 +11,7 @@ class GamesController < ApplicationController
     @start = DateTime.parse(params[:start])
     @grid = params[:grid].split("")
     @result = run_game(@word, @grid, @start, @end)
+    (session[:games] ||= []).push(@result)
+    @games = session[:games]
   end
 end
